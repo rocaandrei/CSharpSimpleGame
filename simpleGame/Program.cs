@@ -10,6 +10,8 @@ namespace simpleGame
     {
         static void Main(string[] args)
         {
+            Ship one = new Bismarck();
+           
         }
     }
 }
