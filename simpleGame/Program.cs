@@ -13,7 +13,7 @@ namespace simpleGame
             Ship one = new Bismarck();
             one.ShipDesign(11, 15, "bismarck");
             Ship two = new Yamamoto();
-            two.ShipDesign(8, 5, "yamamoto");
+            two.ShipDesign(17, 5, "yamamoto");
             //initial gameplay
             GameFight firstFight = new GameFight();
             firstFight.FirstRound(one, two);

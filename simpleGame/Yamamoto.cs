@@ -8,9 +8,9 @@ namespace simpleGame
 {
     class Yamamoto : Ship
     {
-        public override void ShipDesign(int strength, int force, string callName)
+        public override void ShipDesign(int life, int force, string callName)
         {
-            stamina = strength;
+            stamina = life;
             power = force;
             name = callName;
         }
