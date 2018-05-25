@@ -9,8 +9,8 @@ namespace simpleGame
 {
     class GameFight
     {
-        int finalScorePlayerOne;
-        int finalScorePlayerTwo;
+        double finalScorePlayerOne;
+        double finalScorePlayerTwo;
 
         public GameFight()
         {
@@ -20,62 +20,63 @@ namespace simpleGame
             Thread.Sleep(5000);
             Console.WriteLine("Start!!");
         }
-        public void FirstRound(Ship player1, Ship player2)// basically the longest chars in the name is the badass one... :)
+        public void FirstRound(Ship player1, Ship player2)// basically the longest word in the name is the badass one... :)
         {
             if (player1.name.Length > player2.name.Length)
             {
-                Console.WriteLine("Player one name: {0}, winns this rownd", player1.name);
+                Console.WriteLine("Player one name: {0}, winns this round", player1.name);
                 finalScorePlayerOne += 1;//adding one point to player one
             }
             else
             {
-                Console.WriteLine("Player two name: {0}, winns this rownd", player2.name);
+                Console.WriteLine("Player two name: {0}, winns this round", player2.name);
                 finalScorePlayerTwo += 1;//adding one point to player two
             }
         }
-        public void SecondRound(Ship player1, Ship player2)//TO DO: the game logic nu scade cum trebuie, tre sa gasesc 
-            //o modalitate care sa scada punctual din scor fara sa afecteze stamina celuilalt cumva poate fac cu adica sa-i 
-            //scada din viata, dar lui ala nu din stamina ca daca am unul care are viata mai buna ca stamina lui ala ce facem?? 
-            //adica sa fac cumvasa calculez viata - stamina = rezultatul sa il tot decrementez pana la 0 si asa sa fac si cu alalat jucator
+        public void SecondRound(Ship player1, Ship player2)
         {
-            int finalStamina =  player1.power - player2.stamina;//tre sa vad aici la logica asta mai intai cum fac daca ala are mai multa stamina ca in cazul lui bismarck fata de yamamaoto cum o sa calculez loviturile.
-            int tempStamina = finalStamina;
-            for (int i = 1; i <= finalStamina; i++)
+            //first player1 attacks player2
+            Console.WriteLine("{0} sees a chance to attack {0}!", player1.name, player2.name);
+            int player2LifeLeft;
+            player2LifeLeft = player2.stamina - player1.power;
+            if (player2LifeLeft < 0)//if player1 power is greater then player2 stamina, and player2.stamina = -nr
             {
-                Console.WriteLine("Player one attack no {0}!! player two has {1} stamina left",i,tempStamina-- );
+                int numberofAttacks;
+                numberofAttacks = player1.power - player2.stamina;
+                for (int i = 1; i < numberofAttacks; i++)
+                {
+                    Console.WriteLine("{0} strikes hit no {1}!! {2}, has {3} stamina left!!", player1.name, i, player2.name, player2.stamina);
+                    player2.stamina--;
+                }
+                Console.WriteLine("{0} rases the white flag! he's gaving up...");
+                if (player2.stamina == 0)
+                {
+                    Console.WriteLine("After the fight {0}, dosen't have any stamina left...");
+                }
+                else
+                {
+                    Console.WriteLine("After the fight {0}, has {1} stamina left! Good Job!", player2.name, player2.stamina);
+                    finalScorePlayerTwo += 0.5;//if the player has left some stamina he desirves 0.5 points
+                }
             }
-
-            //Thread.Sleep(5000);
-            //Console.WriteLine("Round two!");
-            //Console.WriteLine("Rules: the ship that will stand tall after the atack will win");
-            //while (0 < player2.stamina)
-            //{
-            //    int count = 1;
-            //    Console.WriteLine("Atack no {0}!\nPlayer one hits Player two!!\nPlayer two has {1} stamina left", count, player2.stamina);
-            //    count++;
-            //    player2.stamina--;
-            //    Thread.Sleep(4000);
-            //}
-            //while (0 < player1.stamina)
-            //{
-            //    int count = 1;
-            //    Console.WriteLine("Atack no {0}!\nPlayer two hits Player one!!\nPlayer one has {1} stamina left", count, player1.stamina);
-            //    count++;
-            //    player1.stamina--;
-            //    Thread.Sleep(4000);
-            //}
-            //Console.WriteLine("Round two winner is...");
-            //Thread.Sleep(5000);
-            //if (player1.stamina > player2.stamina)
-            //{
-            //    Console.WriteLine("Player one, {0}, wins this round!!", player1.name);
-            //    finalScorePlayerOne += 1;
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Player two, {0}, wins this round!!", player2.name);
-            //    finalScorePlayerTwo += 1;
-            //}
+            else//if player2 stamina is grater then player1 power then we shall play he fights
+            {
+                for (int i = 1; i < player2LifeLeft; i++)
+                {
+                    Console.WriteLine("{0} strikes hit no {1}!! {2}, has {3} stamina left!!", player1.name, i, player2.name, player2.stamina);
+                    player2.stamina--;
+                }
+                Console.WriteLine("{0} rases the white flag! he's gaving up...");
+                if (player2.stamina == 0)
+                {
+                    Console.WriteLine("After the fight {0}, dosen't have any stamina left...");
+                }
+                else
+                {
+                    Console.WriteLine("After the fight {0}, has {1} stamina left! Good Job!", player2.name, player2.stamina);
+                    finalScorePlayerTwo += 0.5;//if the player has left some stamina he desirves 0.5 points
+                }
+            }
         }
     }
 }

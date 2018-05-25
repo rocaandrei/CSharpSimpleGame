@@ -17,6 +17,6 @@ namespace simpleGame
         /// <param name="strength" = is the stamina></param>
         /// <param name="force" = is the power of the hit></param>
         /// <param name="callName" = is the name of the ship></param>
-        public abstract void ShipDesign(int strength, int force, string callName);
+        public abstract void ShipDesign(int life, int force, string callName);
     }
 }
