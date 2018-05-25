@@ -11,14 +11,15 @@ namespace simpleGame
         static void Main(string[] args)
         {
             Ship one = new Bismarck();
-            one.ShipDesign(11, 15, "bismarck");
+            one.ShipDesign(11, 11, "bismarck");
             Ship two = new Yamamoto();
-            two.ShipDesign(17, 5, "yamamoto");
+            two.ShipDesign(11, 11, "yamamoto23");
             //initial gameplay
             GameFight firstFight = new GameFight();
             firstFight.FirstRound(one, two);
-            Console.ReadLine();
+         //   firstFight.SeeScore();
             firstFight.SecondRound(one, two);
+            firstFight.SeeScore();
             Console.ReadLine();
             
         }
