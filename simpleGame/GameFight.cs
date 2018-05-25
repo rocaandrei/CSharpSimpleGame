@@ -16,7 +16,7 @@ namespace simpleGame
         {
             Console.WriteLine("Wellcome players\nLet's begin!!");
             Thread.Sleep(2000);
-           
+
         }
         public void FirstRound(Ship player1, Ship player2)// basically the longest word in the name is the badass one... :)
         {
@@ -28,7 +28,7 @@ namespace simpleGame
                 Console.WriteLine("Player one name: {0}, winns this round", player1.name);
                 finalScorePlayerOne += 1;//adding one point to player one
             }
-            else if(player1.name.Length < player2.name.Length)
+            else if (player1.name.Length < player2.name.Length)
             {
                 Console.WriteLine("Player two name: {0}, winns this round", player2.name);
                 finalScorePlayerTwo += 1;//adding one point to player two
@@ -81,7 +81,7 @@ namespace simpleGame
                 Console.WriteLine("{0} rases the white flag! he's gaving up...", player2.name);
                 if (player2.stamina == 0)
                 {
-                    Console.WriteLine("After the fight {0}, dosen't have any stamina left...",player2.name);
+                    Console.WriteLine("After the fight {0}, dosen't have any stamina left...", player2.name);
                 }
                 else
                 {
@@ -91,7 +91,7 @@ namespace simpleGame
             }
             Thread.Sleep(4000);
             //player2 atacks player1
-            Console.WriteLine("But wait! {0} sees a chance to attack {1}!!", player2.name,player1.name);
+            Console.WriteLine("But wait! {0} sees a chance to attack {1}!!", player2.name, player1.name);
             Thread.Sleep(2000);
             int player1LifeLeft = player1.stamina - player2.power;
             if (player1LifeLeft < 0)
@@ -123,7 +123,7 @@ namespace simpleGame
                     player1.stamina--;
                     Thread.Sleep(2000);
                 }
-                Console.WriteLine("{0} rases the white flag! he's gaving up...",player1.name);
+                Console.WriteLine("{0} rases the white flag! he's gaving up...", player1.name);
                 if (player1.stamina == 0)
                 {
                     Console.WriteLine("After the fight {0}, dosen't have any stamina left...", player1.name);
@@ -131,16 +131,16 @@ namespace simpleGame
                 else
                 {
                     Console.WriteLine("After the fight {0}, has {1} stamina left! Good Job!", player1.name, player1.stamina);
-                    finalScorePlayerOne+= 0.5;//if the player has left some stamina he desirves 0.5 points
+                    finalScorePlayerOne += 0.5;//if the player has left some stamina he desirves 0.5 points
                 }
             }
             //now we calculate the score
-            if(player1.stamina > player2.stamina)
+            if (player1.stamina > player2.stamina)
             {
                 Console.WriteLine(" The winner of round two is {0}!", player1.name);
                 finalScorePlayerOne += 1;
             }
-            else if(player2.stamina > player1.stamina)
+            else if (player2.stamina > player1.stamina)
             {
                 Console.WriteLine("The winner of round two is {0}!", player2.name);
                 finalScorePlayerTwo += 1;
@@ -162,11 +162,11 @@ namespace simpleGame
         public void SeeScore()
         {
             Console.WriteLine("The score is {0} for player one & {1} for player two.", finalScorePlayerOne, finalScorePlayerTwo);
-            if(finalScorePlayerOne > finalScorePlayerTwo)
+            if (finalScorePlayerOne > finalScorePlayerTwo)
             {
                 Console.WriteLine("PLAYER ONE WINNS!!");
             }
-            else if(finalScorePlayerOne < finalScorePlayerTwo)
+            else if (finalScorePlayerOne < finalScorePlayerTwo)
             {
                 Console.WriteLine("PLAYER TWO WINNS!!");
             }
