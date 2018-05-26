@@ -43,7 +43,10 @@ namespace simpleGame
         public void SecondRound(Ship player1, Ship player2)
         {
             Console.WriteLine("Second Round!");
+            Console.WriteLine("Now the real fight begins... The player that stands up after the fight winns.");
             Thread.Sleep(4000);
+            Console.WriteLine("Start!!");
+            Thread.Sleep(2000);
             //first player1 attacks player2
             Console.WriteLine("{0} sees a chance to attack {1}!", player1.name, player2.name);
             Thread.Sleep(4000);
