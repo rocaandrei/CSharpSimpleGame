@@ -8,11 +8,12 @@ namespace simpleGame
 {
     class Bismarck : Ship
     {
-        public override void ShipDesign(int life, int force, string callName)
+        public override void ShipDesign(int life, int force, string callName, int Speed)
         {
             stamina = life;
             power = force;
             name = callName;
+            speed = Speed;
         }
     }
 }

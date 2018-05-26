@@ -10,7 +10,7 @@ namespace simpleGame
     {
         public int stamina;
         public int power;
-        public int speed
+        public int speed;
         public string name;
         /// <summary>
         /// With this method we will build our ship.

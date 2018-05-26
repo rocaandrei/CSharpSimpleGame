@@ -12,12 +12,12 @@ namespace simpleGame
         double finalScorePlayerOne;
         double finalScorePlayerTwo;
 
-        public GameFight()
+       public GameFight()
         {
             Console.WriteLine("Wellcome players\nLet's begin!!");
             Thread.Sleep(2000);
-
         }
+        #region 3 rounds in a gameFight: 1 the length of name, 2 the power - stamina, 3 the lenght of speed
         public void FirstRound(Ship player1, Ship player2)// basically the longest word in the name is the badass one... :)
         {
             Console.WriteLine("First round!\nThe ship with the most badass name, wins this round.");
@@ -156,13 +156,44 @@ namespace simpleGame
                 finalScorePlayerTwo += 1;
             }
 
-        }
+        }//we will find the difference between stamina and power and we will increment the result
 
-        public void ThirdRound(Ship player1, Ship player2)
+        public void ThirdRound(Ship player1, Ship player2)//the longest distance taken by speed, winns
         {
-
-        }//TO DO: to add implementation 
-
+            Console.WriteLine("Round Three!");
+            Console.WriteLine("Now we have a speed contest, the ship with the longest distance taken without refuel wins this round");
+            Thread.Sleep(3000);
+            Console.WriteLine("First to try is {0}...", player1.name);
+            for (int i = 1; i <= player1.speed; i++)
+            {
+                Console.Write("[__]=>");
+                Thread.Sleep(1000);
+            }
+            Console.WriteLine(Environment.NewLine + "Now is {0} turn...", player2.name);
+            for (int i = 1; i <= player2.speed; i++)
+            {
+                Console.Write("[__]=>");
+                Thread.Sleep(1000);
+            }
+            Console.WriteLine(Environment.NewLine + "As you can see the winner is...");
+            if (player1.speed > player2.speed)
+            {
+                Console.WriteLine("{0}!!", player1.name);
+                finalScorePlayerOne += 1;
+            }
+            else if (player1.speed < player2.speed)
+            {
+                Console.WriteLine("{0}!!", player2.name);
+                finalScorePlayerTwo += 1;
+            }
+            else
+            {
+                Console.WriteLine("None, both have won!");
+                finalScorePlayerOne += 1;
+                finalScorePlayerTwo += 1;
+            }
+        }
+        #endregion
         public void SeeScore()
         {
             Console.WriteLine("The score is {0} for player one & {1} for player two.", finalScorePlayerOne, finalScorePlayerTwo);
