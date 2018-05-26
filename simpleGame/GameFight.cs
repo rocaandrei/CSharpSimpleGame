@@ -53,13 +53,14 @@ namespace simpleGame
             {
                 int numberofAttacks;
                 numberofAttacks = player1.power - player2.stamina;
-                for (int i = 1; i <= numberofAttacks; i++)
+                for (int i = 1; i < numberofAttacks; i++)
                 {
                     Console.WriteLine("{0} strikes hit no {1}!! {2}, has {3} stamina left!!", player1.name, i, player2.name, player2.stamina);
                     player2.stamina--;
                     Thread.Sleep(2000);
                 }
                 Console.WriteLine("{0} rases the white flag! he's gaving up...", player2.name);
+                Thread.Sleep(2000);
                 if (player2.stamina == 0)
                 {
                     Console.WriteLine("After the fight {0}, dosen't have any stamina left...", player2.name);
@@ -72,16 +73,18 @@ namespace simpleGame
             }
             else//if player2 stamina is grater then player1 power then we shall play he fights
             {
-                for (int i = 1; i <= player2LifeLeft; i++)
+                for (int i = 1; i < player2LifeLeft; i++)
                 {
                     Console.WriteLine("{0} strikes hit no {1}!! {2}, has {3} stamina left!!", player1.name, i, player2.name, player2.stamina);
                     player2.stamina--;
                     Thread.Sleep(2000);
                 }
                 Console.WriteLine("{0} rases the white flag! he's gaving up...", player2.name);
+                Thread.Sleep(2000);
                 if (player2.stamina == 0)
                 {
                     Console.WriteLine("After the fight {0}, dosen't have any stamina left...", player2.name);
+                    Thread.Sleep(2000);
                 }
                 else
                 {
@@ -89,7 +92,7 @@ namespace simpleGame
                     finalScorePlayerTwo += 0.5;//if the player has left some stamina he desirves 0.5 points
                 }
             }
-            Thread.Sleep(4000);
+            // Thread.Sleep(4000);
             //player2 atacks player1
             Console.WriteLine("But wait! {0} sees a chance to attack {1}!!", player2.name, player1.name);
             Thread.Sleep(2000);
@@ -98,16 +101,17 @@ namespace simpleGame
             {
                 int numberofAttacks;
                 numberofAttacks = player2.power - player1.stamina;
-                for (int i = 1; i <= numberofAttacks; i++)
+                for (int i = 1; i < numberofAttacks; i++)
                 {
                     Console.WriteLine("{0} strikes hit no {1}!! {2}, has {3} stamina left!!", player2.name, i, player1.name, player1.stamina);
                     player1.stamina--;
                     Thread.Sleep(2000);
                 }
                 Console.WriteLine("{0} rases the white flag! he's gaving up...", player1.name);
+                Thread.Sleep(2000);
                 if (player1.stamina == 0)
                 {
-                    Console.WriteLine("After the fight {0}, dosen't have any stamina left...");
+                    Console.WriteLine("After the fight {0}, dosen't have any stamina left...", player1.name);
                 }
                 else
                 {

@@ -16,8 +16,8 @@ namespace simpleGame
             two.ShipDesign(11, 15, "yamamoto23");
             //initial gameplay
             GameFight firstFight = new GameFight();
-            firstFight.FirstRound(one, two);
-            firstFight.SeeScore();
+            //firstFight.FirstRound(one, two);
+            //firstFight.SeeScore();
             firstFight.SecondRound(one, two);
             firstFight.SeeScore();
             Console.ReadLine();
